@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Coffee Shop</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <a href="/index" class="btn btn-default mx-2"><span class="fa fa-user"></span> Barista?</a>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <form class="card p-5 m-3 d-flex flex-column" action="/orders" method="post">
+                    <h1 class="mx-5">Welcome to The Coffee Shop</h1>
+                    <div>
+                        <input class="my-2" type="text" name="name" placeholder="Name">
+                        <input class="my-2" type="text" name="drink" placeholder="Drink">
+                        <div>
+                            <select class="my-3" name="size" id="">
+                                <option value="">--size--</option>
+                                <option value="SMALL">Small</option>
+                                <option value="MEDIUM">Medium</option>
+                                <option value="LARGE">Large</option>
+                            </select>
+                            <select class="my-3" name="milk" id="">
+                                <option value="n/a">--Milk--</option>
+                                <option value="2% Milk">2% Milk</option>
+                                <option value="Whole Milk">Whole Milk</option>
+                                <option value="Half & Half">Half & Half</option>
+                                <option value="Coconut">Coconut Milk</option>
+                                <option value="Soy Milk">Soy</option>
+                                <option value="Oat Milk">Oat</option>
+                                <option value="Almond Milk">Almond</option>
+                                <option value="none">None</option>
+                            </select>
+
+                            <select class="my-3" name="temperature" id="">
+                                <option value="n/a">--Temp--</option>
+                                <option value="hot">hot</option>
+                                <option value="iced">iced</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="list-group col-sm-4">
+                        <div class="list-group-item">
+                            <input type="checkbox" value="Hazelnut" name="flavors" id="hazelnut">
+                            <label for="hazelnut">Hazelnut</label>
+                        </div>
+                        <div class="list-group-item">
+                            <input type="checkbox" value="French Vanilla" name="flavors" id="frenchVanilla">
+                            <label for="frenchVanilla">French Vanilla</label>
+                        </div>
+                        <div class="list-group-item">
+                            <input type="checkbox" value="Caramel" name="flavors" id="caramel">
+                            <label for="caramel">Caramel</label>
+                        </div>
+                        <div class="list-group-item">
+                            <input type="checkbox" value="Mocha" name="flavors" id="mocha">
+                            <label for="mocha">Mocha</label>
+                        </div>
+                        <div class="list-group-item">
+                            <input type="checkbox" value="Brown Sugar" name="flavors" id="brownSugar">
+                            <label for="brownSugar">Brown Sugar</label>
+                        </div>
+                        <div class="list-group-item">
+                            <input type="checkbox" value="Toasted Vanilla" name="flavors" id="toastedVanilla">
+                            <label for="toastedVanilla">Toasted Vanilla</label>
+                        </div>
+                    </div>
+
+                    <button id="submit" class="btn d-block mt-3">Submit</button>
+                </form>
+            </div>
+
+            <div class="d-flex justify-content-around col-sm-6 mt-5">
+                <div class="card p-4 bg-light cardHeight">
+                    <h4>Submitted Orders</h4>
+                    <ul>
+                        <% for (let i=0; i < orders.length; i++) {%>
+                            <li><span>
+                                    <%=orders[i].name%>
+                                </span></li>
+                            <%}%>
+                    </ul>
+                </div>
+                <div class="card p-4 cardHeight">
+                    <h4>Completed Orders</h4>
+                    <ul>
+                        <% for (let i=0; i < done.length; i++) {%>
+                            <li><span>
+                                    <%=done[i].name%>
+                                </span></li>
+                            <%}%>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
